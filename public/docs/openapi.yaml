@@ -1,0 +1,232 @@
+openapi: 3.0.3
+info:
+    title: Laravel
+    description: ''
+    version: 1.0.0
+servers:
+    -
+        url: 'http://localhost'
+paths:
+    /api/v1/login:
+        post:
+            summary: Login
+            description: 'This endpoint is used to authenticate a user.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, OK'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    user: { id: 1, name: 'John Doe', email: john.doe@mailinator.com, email_verified_at: null, created_at: '2020-11-04T01:48:03.000000Z', updated_at: '2020-11-04T01:48:03.000000Z' }
+                                    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTUzOGFjYjRjYjFjN2E4OTI2ZDVhNDc5NTIxYmZiM2IzYTlmYzgwOTQ0MjI1MDY3ODMzY2FhYTRhZmQ5YmM3N2UwMTBhMjg5YmQ4YWNjOTMiLCJpYXQiOjE2MDQ0ODAyNjYsIm5iZiI6MTYwNDQ4MDI2NiwiZXhwIjoxNjA0NTY2NjY1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.kh8iMbKMpeSrLywBV9t734Zh_K6llrQxeBUt2aJnUfLw-G-rQw6o67MqdVAXtM74OsqDX-InveY8laIKGw50oniZ2YzVzqHOIbbuN3ZVe7kq8HFPziDD73296QRs0LGZxAADyZsJIU05_aLgOGvtBOz4dXXkfOlAyQ7T3p7w_JqWoBMd8PCxWn7wtN6EC8hmUQ9mAVJYLT85ucjVWEgaLeSjpWTN9g9aIUFKwtiw7sFNTSow76855rbao3u59O3rE_nKD7C9F2TC7XbuUcb1swmuo4zI_-uxVmt7qO9EsmbAjr78eps_3XZEpYxpt-RnQWSPs50K4y9pQzvmscauc1vD8ZXpEff_NR4uMTfhLockazZiM7G2O7-_RPqdELfubFSkTwb2CPklPAy6atVtwcBPULgZUa7olPP9Fs4CJvZn4rWV8rUJnou4wD2iEWwHLq5UN8wuRupUKoKPIlyPgHFVIZglXVvhlDo-FGwuprVmiNfF6xpEFKmeqnX5SjTuBKZ04tPGraclRn9PR89k_Dcw1mHFW6vVtX2iPj6ZXFx3tJVSpvmtpb67JiGK41vocd48XFMAdT5qQf2miOxRQjr-Qsp5c9Zk_Zm26ip8HasDjPk5IKgOYzXB1x4bLIqRKslUUPPdhE-NBUzapOEFr5Zb7K2kkyZE4VVXRPT4RjY
+                                    token_type: Bearer
+                                    expires_at: '2020-11-05 08:57:45'
+                                properties:
+                                    user: { type: object, example: { id: 1, name: 'John Doe', email: john.doe@mailinator.com, email_verified_at: null, created_at: '2020-11-04T01:48:03.000000Z', updated_at: '2020-11-04T01:48:03.000000Z' } }
+                                    token: { type: string, example: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTUzOGFjYjRjYjFjN2E4OTI2ZDVhNDc5NTIxYmZiM2IzYTlmYzgwOTQ0MjI1MDY3ODMzY2FhYTRhZmQ5YmM3N2UwMTBhMjg5YmQ4YWNjOTMiLCJpYXQiOjE2MDQ0ODAyNjYsIm5iZiI6MTYwNDQ4MDI2NiwiZXhwIjoxNjA0NTY2NjY1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.kh8iMbKMpeSrLywBV9t734Zh_K6llrQxeBUt2aJnUfLw-G-rQw6o67MqdVAXtM74OsqDX-InveY8laIKGw50oniZ2YzVzqHOIbbuN3ZVe7kq8HFPziDD73296QRs0LGZxAADyZsJIU05_aLgOGvtBOz4dXXkfOlAyQ7T3p7w_JqWoBMd8PCxWn7wtN6EC8hmUQ9mAVJYLT85ucjVWEgaLeSjpWTN9g9aIUFKwtiw7sFNTSow76855rbao3u59O3rE_nKD7C9F2TC7XbuUcb1swmuo4zI_-uxVmt7qO9EsmbAjr78eps_3XZEpYxpt-RnQWSPs50K4y9pQzvmscauc1vD8ZXpEff_NR4uMTfhLockazZiM7G2O7-_RPqdELfubFSkTwb2CPklPAy6atVtwcBPULgZUa7olPP9Fs4CJvZn4rWV8rUJnou4wD2iEWwHLq5UN8wuRupUKoKPIlyPgHFVIZglXVvhlDo-FGwuprVmiNfF6xpEFKmeqnX5SjTuBKZ04tPGraclRn9PR89k_Dcw1mHFW6vVtX2iPj6ZXFx3tJVSpvmtpb67JiGK41vocd48XFMAdT5qQf2miOxRQjr-Qsp5c9Zk_Zm26ip8HasDjPk5IKgOYzXB1x4bLIqRKslUUPPdhE-NBUzapOEFr5Zb7K2kkyZE4VVXRPT4RjY }
+                                    token_type: { type: string, example: Bearer }
+                                    expires_at: { type: string, example: '2020-11-05 08:57:45' }
+                422:
+                    description: '422, Unprocessable entity'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"The given data was invalid.\",\n \"errors\": {\n   \"field\": [\n       \"The field is required.\"\n   ],\n   ...\n }\n}"
+            tags:
+                - Authentication
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'Email address of the user.'
+                                    example: john.doe@mailinator.com
+                                password:
+                                    type: string
+                                    description: Password.
+                                    example: '********'
+                            required:
+                                - email
+                                - password
+            security: []
+    /api/v1/register:
+        post:
+            summary: 'Register new user'
+            description: 'This endpoint is used to register a new user.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                201:
+                    description: '201, OK'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n {\n\"message\": \"User successfully registered\",\n \"user\": {\n     \"first\": \"Catalin\",\n     \"last\": \"Stratu\",\n     \"role\": \"1\",\n     \"email\": \"test@gmail.com\",\n     \"updated_at\": \"2020-11-05T13:38:40.000000Z\",\n     \"created_at\": \"2020-11-05T13:38:40.000000Z\",\n     \"id\": 2\n     }\n }"
+                422:
+                    description: '422, Unprocessable entity'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"The given data was invalid.\",\n \"errors\": {\n   \"field\": [\n       \"The field is required.\"\n   ],\n   ...\n }\n}"
+            tags:
+                - Authentication
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                first:
+                                    type: string
+                                    description: 'First Name of the user'
+                                    example: John.
+                                last:
+                                    type: string
+                                    description: 'Last Name of the user'
+                                    example: 'Doe .'
+                                email:
+                                    type: string
+                                    description: 'Email address of the user.'
+                                    example: john.doe@mailinator.com
+                                password:
+                                    type: string
+                                    description: Password.
+                                    example: '********'
+                                password_confirmation:
+                                    type: string
+                                    description: 'Confirm password.'
+                                    example: '********'
+                            required:
+                                - first
+                                - last
+                                - email
+                                - password
+                                - password_confirmation
+            security: []
+    /api/v1/logout:
+        post:
+            summary: Logout
+            description: 'This endpoint is used to revoke user''s access token.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, OK'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'Token successfully revoked'
+                                properties:
+                                    message: { type: string, example: 'Token successfully revoked' }
+            tags:
+                - Authentication
+            security: []
+    /api/v1/refresh:
+        post:
+            summary: 'Refresh a token.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Authentication
+            security: []
+    /api/v1/user-profile:
+        get:
+            summary: 'Get the authenticated User.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - Authentication
+            security: []
