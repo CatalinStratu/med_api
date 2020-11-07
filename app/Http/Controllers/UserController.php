@@ -25,7 +25,7 @@ class UserController extends Controller
     /**
      * Update User information
      *
-     * This endpoint is used to register a new user.
+     * This endpoint is used to update user information.
      * @unauthenticated
      *
      * @bodyParam first string required First Name of the user Example: John.
@@ -87,24 +87,74 @@ class UserController extends Controller
             'user' => $user
         ], 201);
     }
-
     /**
-     * Update the specified resource in storage.
+     * Update User password
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * This endpoint is used to update user password.
+     * @unauthenticated
+     *
+     * @bodyParam first string required First Name of the user Example: John.
+     * @bodyParam last string required Last Name of the user  Example: Doe .
+     *
+     * @response status=201 scenario="OK" {
+     * {
+     * "message": "Password updated successfully!",
+     * "user": {
+     * "id": 1,
+     * "first": "matkks@gmail.comssssa",
+     * "last": "123qweasdaaa",
+     * "role": 1,
+     * "balance": "0.00",
+     * "profile_picture": null,
+     * "email": "catalinstratu45@gmail.com",
+     * "email_verified_at": null,
+     * "created_at": "2020-11-05T12:46:10.000000Z",
+     * "updated_at": "2020-11-06T22:13:26.000000Z"
+     * }
+     * }
+     * @response status=404 scenario="Not Found" {
+     * {
+     * "message": "User not found"
+     * }
+     * @response status=422 scenario="Unprocessable entity" {
+     *  "message": "The given data was invalid.",
+     *  "errors": {
+     *    "field": [
+     *        "The field is required."
+     *    ],
+     *    ...
+     *  }
+     * }
      */
-    public function update(Request $request, $id)
+    public function updatePassword(Request $request)
     {
-        $User = User::findOrFail($id);
-        $User->name = $request->name;
-        $User->email = $request->email;
-        $User->is_admin = $request->is_admin;
-        $User->is_judge = $request->is_judge;
-        $User->spot_id = $request->spot_id;
-        $User->save();
-        return User::orderBy('id', 'DESC')->get();
-    }
 
+        $validator = \Validator::make($request->all(), [
+            'old_password' => 'required',
+            //'password' => 'required|confirmed|different:old_password',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required|same:password',
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+        $user = Auth::user();
+
+        $auth = \Auth::once([
+            'email' => $user->email,
+            'password' => $request->get('old_password'),
+        ]);
+        if (!$token = auth('api')->attempt($validator->validated())) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        if (!$auth) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        $password = bcrypt($request->get('password'));
+        $user->update(['password' => $password]);
+        return response()->json([
+            'message' => 'User updated successfully!',
+            'user' => $user
+        ], 201);
+    }
 }

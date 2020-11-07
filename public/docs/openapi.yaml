@@ -97,7 +97,7 @@ paths:
                         text/plain:
                             schema:
                                 type: string
-                                example: "{\n {\n\"message\": \"User successfully registered\",\n \"user\": {\n     \"first\": \"Catalin\",\n     \"last\": \"Stratu\",\n     \"role\": \"1\",\n     \"email\": \"test@gmail.com\",\n     \"updated_at\": \"2020-11-05T13:38:40.000000Z\",\n     \"created_at\": \"2020-11-05T13:38:40.000000Z\",\n     \"id\": 2\n     }\n }"
+                                example: "{\n {\n\"message\": \"User successfully registered\",\n \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC92MVwvcmVnaXN0ZXIiLCJpYXQiOjE2MDQ2NjkyOTgsImV4cCI6MTYwNDY3Mjg5OCwibmJmIjoxNjA0NjY5Mjk4LCJqdGkiOiJQNnZIVzZ4aEIyODR5MFVhIiwic3ViIjo0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GXmKChKDsG-SXRaDl39LfNz_Ip4pY80Zmkp6qfFB4fs\",\n \"token_type\": \"bearer\",\n \"expires_in\": 3600,\n \"user\": {\n     \"first\": \"Catalin\",\n     \"last\": \"Stratu\",\n     \"role\": \"1\",\n     \"email\": \"test@gmail.com\",\n     \"updated_at\": \"2020-11-05T13:38:40.000000Z\",\n     \"created_at\": \"2020-11-05T13:38:40.000000Z\",\n     \"id\": 2\n     }\n }"
                 422:
                     description: '422, Unprocessable entity'
                     content:
@@ -229,4 +229,66 @@ paths:
                                     message: { type: string, example: Unauthenticated. }
             tags:
                 - Authentication
+            security: []
+    /api/v1/user/update-user:
+        put:
+            summary: 'Update User information'
+            description: 'This endpoint is used to register a new user.'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                201:
+                    description: '201, OK'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n{\n\"message\": \"User updated successfully!\",\n\"user\": {\n\"id\": 1,\n\"first\": \"matkks@gmail.comssssa\",\n\"last\": \"123qweasdaaa\",\n\"role\": 1,\n\"balance\": \"0.00\",\n\"profile_picture\": null,\n\"email\": \"catalinstratu45@gmail.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2020-11-05T12:46:10.000000Z\",\n\"updated_at\": \"2020-11-06T22:13:26.000000Z\"\n}\n}"
+                404:
+                    description: '404, Not Found'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n{\n\"message\": \"User not found\"\n}"
+                422:
+                    description: '422, Unprocessable entity'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"The given data was invalid.\",\n \"errors\": {\n   \"field\": [\n       \"The field is required.\"\n   ],\n   ...\n }\n}"
+            tags:
+                - 'User profile'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                first:
+                                    type: string
+                                    description: 'First Name of the user'
+                                    example: John.
+                                last:
+                                    type: string
+                                    description: 'Last Name of the user'
+                                    example: 'Doe .'
+                            required:
+                                - first
+                                - last
             security: []

@@ -155,6 +155,9 @@ fetch(url, {
 {
  {
 "message": "User successfully registered",
+ "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC92MVwvcmVnaXN0ZXIiLCJpYXQiOjE2MDQ2NjkyOTgsImV4cCI6MTYwNDY3Mjg5OCwibmJmIjoxNjA0NjY5Mjk4LCJqdGkiOiJQNnZIVzZ4aEIyODR5MFVhIiwic3ViIjo0LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GXmKChKDsG-SXRaDl39LfNz_Ip4pY80Zmkp6qfFB4fs",
+ "token_type": "bearer",
+ "expires_in": 3600,
  "user": {
      "first": "Catalin",
      "last": "Stratu",
