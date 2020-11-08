@@ -15,5 +15,5 @@ Route::group([
     Route::get('user-profile', 'App\Http\Controllers\AuthController@userProfile');
 
         Route::put('update-user', 'App\Http\Controllers\UserController@updateProfile');
-        Route::put('update-password', 'App\Http\Controllers\UserController@updatePassword')->middleware('auth');;
+        Route::put('update-password', 'App\Http\Controllers\UserController@updatePassword');
 });

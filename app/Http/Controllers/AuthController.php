@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 //use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;
@@ -174,6 +176,12 @@ class AuthController extends Controller
      */
     public function userProfile()
     {
-        return response()->json(auth('api')->user());
+        try {
+            $user = auth('api')->user();
+        } catch (\Exception $e) {
+            throw new HttpException(500, $e->getMessage());
+            throw new HttpException(405, $e->getMessage());
+        }
+        return response()->json($user);
     }
 }

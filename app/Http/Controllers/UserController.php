@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use JWTAuth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -138,23 +139,26 @@ class UserController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-        $user = Auth::user();
+        $old_password = $request->old_password;
+        $new_password = $request->password;
+        //$new_password_confirmation = $request->new_password_confirmation;
 
-        $auth = \Auth::once([
-            'email' => $user->email,
-            'password' => $request->get('old_password'),
-        ]);
-        if (!$token = auth('api')->attempt($validator->validated())) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        if(Auth::check())
+        {
+            $logged_user = Auth::user();
+
+            if(Hash::check($old_password, $logged_user->password))
+            {
+                $logged_user->password = Hash::make($new_password);
+                $logged_user->save();
+                return response()->json([
+                    'message' => 'User updated successfully!',
+                    'user' => $logged_user
+                ], 201);
+            }
+            return response()->json([
+                'message' => 'Old Password is incorrect'
+            ], 422);
         }
-        if (!$auth) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-        $password = bcrypt($request->get('password'));
-        $user->update(['password' => $password]);
-        return response()->json([
-            'message' => 'User updated successfully!',
-            'user' => $user
-        ], 201);
     }
 }
