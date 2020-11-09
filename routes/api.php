@@ -16,4 +16,6 @@ Route::group([
 
         Route::put('update-user', 'App\Http\Controllers\UserController@updateProfile');
         Route::put('update-password', 'App\Http\Controllers\UserController@updatePassword');
+
+        Route::post('doctor-education', 'App\Http\Controllers\Doctor\DoctorEducationController@store');
 });

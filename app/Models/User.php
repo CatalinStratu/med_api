@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Doctor\DoctorEducation;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -56,5 +57,10 @@ class User extends Authenticatable implements JWTSubject {
      */
     public function getJWTCustomClaims() {
         return [];
+    }
+
+    public function DoctorEducation()
+    {
+        return $this->hasMany(DoctorEducation::class);
     }
 }
