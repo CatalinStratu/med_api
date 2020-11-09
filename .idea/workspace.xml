@@ -154,6 +154,10 @@
       <path value="$PROJECT_DIR$/vendor/knuckleswtf/pastel" />
       <path value="$PROJECT_DIR$/vendor/windwalker/structure" />
       <path value="$PROJECT_DIR$/vendor/windwalker/renderer" />
+      <path value="$PROJECT_DIR$/vendor/algolia/scout-extended" />
+      <path value="$PROJECT_DIR$/vendor/algolia/algoliasearch-client-php" />
+      <path value="$PROJECT_DIR$/vendor/laravel/scout" />
+      <path value="$PROJECT_DIR$/vendor/riimu/kit-phpencoder" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jqAfwXddH8G7SRxUYEvXTvL1YJ" />
@@ -207,7 +211,7 @@
       <workItem from="1604823208965" duration="5076000" />
       <workItem from="1604855566315" duration="2783000" />
       <workItem from="1604862020092" duration="2946000" />
-      <workItem from="1604916106505" duration="4617000" />
+      <workItem from="1604916106505" duration="4973000" />
     </task>
     <servers />
   </component>
