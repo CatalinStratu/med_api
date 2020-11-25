@@ -18,12 +18,16 @@ class DoctorEducationController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validator = $this->validate($request, [
             'school' => 'required',
             'degree' => 'required',
             'description' => 'required',
             'start_at' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
+        }
 
         $doctor = new DoctorEducation();
         $doctor->school = $request->school;
@@ -35,10 +39,10 @@ class DoctorEducationController extends Controller
         $doctor->save();
 
 
-            return response()->json([
+        return response()->json([
                 'success' => true,
                 'doctor' => $doctor
-            ]);
+        ]);
 
     }
 }

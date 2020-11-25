@@ -21,8 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f197ef93-cb72-42ef-bf35-455c0f07532a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Doctor/DoctorEducationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Doctor/DoctorEducationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,9 +184,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\user\openserver\OSPanel\domains\med_api\laravel-jwt-auth\app\Http\Controllers\Client" />
-      <recent name="C:\Users\user\openserver\OSPanel\domains\med_api\laravel-jwt-auth\app\Http\Controllers\Doctor" />
       <recent name="C:\Users\user\openserver\OSPanel\domains\med_api\laravel-jwt-auth\app\Models\Doctor" />
+      <recent name="C:\Users\user\openserver\OSPanel\domains\med_api\laravel-jwt-auth\app\Http\Controllers\Doctor" />
+      <recent name="C:\Users\user\openserver\OSPanel\domains\med_api\laravel-jwt-auth\app\Http\Controllers\Client" />
     </key>
   </component>
   <component name="RunManager">
@@ -217,7 +218,10 @@
       <workItem from="1604862020092" duration="2946000" />
       <workItem from="1604916106505" duration="4973000" />
       <workItem from="1605019778192" duration="1051000" />
-      <workItem from="1605121659876" duration="303000" />
+      <workItem from="1605121659876" duration="987000" />
+      <workItem from="1605385861126" duration="892000" />
+      <workItem from="1606050167376" duration="3808000" />
+      <workItem from="1606332712852" duration="1059000" />
     </task>
     <servers />
   </component>
@@ -249,5 +253,16 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604701409636" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Kernel.php</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

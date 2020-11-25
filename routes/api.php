@@ -13,9 +13,8 @@ Route::group([
     Route::post('logout', 'App\Http\Controllers\AuthController@logout');
     Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');
     Route::get('user-profile', 'App\Http\Controllers\AuthController@userProfile');
-
         Route::put('update-user', 'App\Http\Controllers\UserController@updateProfile');
         Route::put('update-password', 'App\Http\Controllers\UserController@updatePassword');
-
         Route::post('doctor-education', 'App\Http\Controllers\Doctor\DoctorEducationController@store');
+    Route::post('doctor-experiention', 'App\Http\Controllers\Doctor\DoctorEducationController@store');
 });
